@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{%for demo in demos %}
+
+
+   <h1>{{demo.title}}</h1>
+
+   <p>{{demo.createdAt|date('d/m/Y/h')}}</p>
+
+   <button><a  href="{{path ('show_app' , {'id' : demo.id})}}">  View Single post   </a> </button>
+
+   
+
+{% endfor %}
+
+
+{% endblock %}
