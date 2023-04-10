@@ -19,7 +19,8 @@ class EntityDemo
     #[ORM\Column(length: 255)]
     private ?string $matricule = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+   
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column(length: 255)]

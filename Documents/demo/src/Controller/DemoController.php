@@ -8,6 +8,21 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\EntityDemo;
 use App\Repository\EntityDemoRepository;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\HttpFoundation\Request;
+
+
+
+
+
+
+
+
+
+
 
 class DemoController extends AbstractController
 {
@@ -42,5 +57,50 @@ class DemoController extends AbstractController
         ]);
     }
 
+    #[Route('/Create_app', name: 'create_app')]
+    public function create(Request $request, EntityManagerInterface $manager): Response
+    {
+        $demo = new EntityDemo();
+
+        
+        $form = $this->createFormBuilder( $demo)
+            ->add('title',  TextType::class , [ 
+                'attr' => 
+                [ 'class' => 'form-control']
+                ] )
+            ->add('matricule', TextType::class , [ 
+                'attr' => 
+                [ 'class' => 'form-control']
+                ] )
+            ->add('content', TextareaType::class , [ 
+                'attr' => 
+                [ 'class' => 'form-control']
+                ])
+            ->add ('save', SubmitType::class, [
+                'label' => 'Create',
+                'attr' => [
+                    'class' => 'btn btn-primary' 
+                ]
+
+            ])
+            // add a createdAt  input in hidden mode
+            
+            
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $demo = $form->getData();
+            $manager->persist($demo);
+            $manager->flush();
+            return $this->redirectToRoute('app_demo');
+        }
+
+        return $this->render('demo/create.html.twig', [
+            'form' => $form->createView(),
+            
+        ]);
+    }
 
 }

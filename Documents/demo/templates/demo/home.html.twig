@@ -7,6 +7,10 @@
 
    <h1>{{demo.title}}</h1>
 
+   <p> {{demo.matricule}}</p>
+   
+   <p>{{demo.content}}</p>
+
    <p>{{demo.createdAt|date('d/m/Y/h')}}</p>
 
    <button><a  href="{{path ('show_app' , {'id' : demo.id})}}">  View Single post   </a> </button>
