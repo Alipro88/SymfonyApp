@@ -1,39 +1,44 @@
 {% extends 'base.html.twig' %}
 
 
-
-
 {% block body %}
 
-<h1>Créer un nouveau Post</h1>
-
-{{ form_start(form) }}
-
-
-<div class="form-group">
-
-<label for="">Titre</label>
-{{ form_widget(form.title) }}
-
-</div>
-<div class="form-group">
-<label for="">Matricule</label>
-{{ form_widget(form.matricule) }}
-
-</div>
-<div class="form-group">
-
-<label for="">content</label>
-{{ form_widget(form.content) }}
-
-</div>
-<div class="form-group">
-
-
-{{ form_widget(form.save) }}
-
+<div  >
+<h1>
+{{ title}}
+</h1>
 </div>
 
-{{ form_end(form) }}
+<div class='form-group'>
+<form action=""  method= 'post'>
+
+<div class='form-group'>
+<label for='name'>Title :</label>
+<input type='text' class='form-control' id='title' name='title' placeholder='title'>
+</div>
+<div class='form-group'>
+<label for='description'>Matricule :</label>
+<input type='text' class='form-control' id='Matricule' name='matricule' placeholder='Enter Matricule'>
+</div>
+<div class='form-group'>
+<label for='price'>Content :</label>
+<textarea type='text' class='form-control' id='content' name='content' placeholder='Enter content'> </textarea>
+</div>
+<div>
+<button type='submit' class='btn btn-primary'>Submit</button>
+</div>
+
+   
+
+</form>
+
+</div>
+
+
+
+
+
+
+
 
 {% endblock %}

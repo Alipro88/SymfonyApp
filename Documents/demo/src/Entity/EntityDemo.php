@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\EntityDemoRepository;
 use Doctrine\ORM\Mapping as ORM;
+//IMPORT DE LA CLASSE DATETIMEimmutable
+use DateTimeImmutable;
 
 #[ORM\Entity(repositoryClass: EntityDemoRepository::class)]
 class EntityDemo
@@ -19,7 +21,7 @@ class EntityDemo
     #[ORM\Column(length: 255)]
     private ?string $matricule = null;
 
-    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+    #[ORM\Column(length: 255)]
    
     private ?\DateTimeImmutable $createdAt = null;
 

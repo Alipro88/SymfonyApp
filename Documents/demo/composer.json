@@ -102,7 +102,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.1.*"
+            "require": "^5.5.0"
         }
     }
 }

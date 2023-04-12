@@ -4,7 +4,7 @@
 
 {%for demo in demos %}
 
-
+{# 
    <h1>{{demo.title}}</h1>
 
    <p> {{demo.matricule}}</p>
@@ -14,6 +14,17 @@
    <p>{{demo.createdAt|date('d/m/Y/h')}}</p>
 
    <button><a  href="{{path ('show_app' , {'id' : demo.id})}}">  View Single post   </a> </button>
+    #}
+
+<div class="card" style="width: 18rem;">
+  <img src="https://picsum.photos/200/300/?blur" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{demo.title}}</h5>
+    <p class="card-text">{{demo.content}}</p>
+    <a href="{{path ('show_app' , {'id' : demo.id})}}" class="btn btn-primary">See The Post</a>
+  </div>
+</div>    
+
 
    
 

@@ -10,7 +10,7 @@ class DemoFix extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        for ($i=0; $i <= 10 ; $i++) { 
+        for ($i=0; $i <= 11 ; $i++) { 
             $demo = new EntityDemo();
             $demo->setTitle('Titre de poste  '.$i);
             $demo->setMatricule('Matricule de poste '.$i);
@@ -18,7 +18,7 @@ class DemoFix extends Fixture
             $demo->setContent('Content '.$i);
             $manager->persist($demo);
             
-        }
+        }       
 
         $manager->flush();
     }
