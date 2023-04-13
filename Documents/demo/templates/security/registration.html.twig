@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+<h1> Register </h1>
+
+{{ form_start(form) }}
+
+{{ form_row(form.UserName , {'attr ' : {'class' : 'form-control'}})}}
+
+{{ form_row(form.mail , {'attr ' : {'class' : 'form-control'}})}}
+
+{{ form_row(form.password , {'attr ' : {'class' : 'form-control'}})}}
+
+{{ form_row(form.confirm_password , {'attr ' : {'class' : 'form-control'}})}}
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
+{{ form_end(form)}}
+
+
+{% endblock %}
