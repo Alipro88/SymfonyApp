@@ -8,6 +8,8 @@ use App\Repository\UserRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity (fields: ["mail"], message: "Cette adresse mail est déjà utilisée")]
@@ -81,8 +83,20 @@ class User implements UserInterface
     public function getSalt()
     {
     }
-    public function getRoles()
+    public function getRoles(): array
     {
-        return ['ROLE_USER'];
+    // Retourner les rôles de l'utilisateur
+    return ['ROLE_USER'];
     }
+
+    public function getUserIdentifier(): string
+    {
+    // Retourner l'adresse e-mail de l'utilisateur comme identifiant
+    return $this->mail;
+    }
+
+
+
+
+    
 }
